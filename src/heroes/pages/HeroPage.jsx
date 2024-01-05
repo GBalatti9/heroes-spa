@@ -11,7 +11,7 @@ export const HeroPage = () => {
 
     const handleNavigateBack = ( publisher ) => {
         
-        if ( publisher === 'DC Comics' ) navigate( '/dc' );
+        if ( publisher === 'DC Comics' )     navigate( '/dc' );
         if ( publisher === 'Marvel Comics' ) navigate( '/marvel' );
     }
 
