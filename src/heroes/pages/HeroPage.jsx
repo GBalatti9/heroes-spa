@@ -9,8 +9,10 @@ export const HeroPage = () => {
 
     const hero = getHeroeById( id );
 
-    const handleNavigateBack = () => {
-        return navigate( -1 );
+    const handleNavigateBack = ( publisher ) => {
+        
+        if ( publisher === 'DC Comics' ) navigate( '/dc' );
+        if ( publisher === 'Marvel Comics' ) navigate( '/marvel' );
     }
 
     if ( !hero ) {
@@ -38,11 +40,18 @@ export const HeroPage = () => {
                     <h5 className="mt-3"> Characters </h5>
                     <p>{ hero.characters }</p>
 
-                    <button 
-                        className="btn btn-outline-primary"
-                        onClick={ handleNavigateBack }>
-                        Go back
-                    </button>
+                    <div className="d-flex justify-content-around">
+                        <button 
+                            className="btn btn-outline-primary"
+                            onClick={() => handleNavigateBack( hero.publisher ) }>
+                            Go to { hero.publisher }
+                        </button>
+                        <button
+                            className="btn btn-outline-primary"
+                            onClick={() => handleNavigateBack( hero.publisher ) }>
+                            Go to { hero.publisher === 'DC Comics' ? 'Marvel Comics' : 'DC Comics' }
+                        </button>
+                    </div>
                 </div>
             </div>
             <h1>{ hero.superhero }</h1>
